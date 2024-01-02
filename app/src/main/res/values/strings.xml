@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Alle Sample</string>
+    <string name="share">Share</string>
+    <string name="info">Info</string>
+    <string name="delete">Delete</string>
+    <string name="add_a_note">Add a note</string>
+    <string name="collections">Collections</string>
+    <string name="edit">Edit</string>
+    <string name="description">Description</string>
+</resources>
