@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/iv_active_screenshot"
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
+                android:layout_height="@dimen/_420dp"
                 android:padding="@dimen/_16dp" />
 
             <TextView
@@ -40,8 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_16dp"
-                android:orientation="horizontal"
-                android:weightSum="3" />
+                android:orientation="horizontal" />
 
             <TextView
                 android:id="@+id/tv_desc_label"
@@ -51,9 +50,7 @@
                 android:layout_marginTop="@dimen/_16dp"
                 android:text="@string/description"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_collections" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_desc"
@@ -62,15 +59,9 @@
                 android:layout_marginHorizontal="@dimen/_16dp"
                 android:layout_marginTop="@dimen/_8dp"
                 android:layout_marginBottom="@dimen/_56dp"
-                android:textColor="#939393"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_desc_label"
-                app:layout_constraintVertical_bias="0"
                 tools:text="@string/description" />
         </LinearLayout>
-
     </ScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -103,7 +94,7 @@
             android:gravity="center"
             android:paddingVertical="@dimen/_16dp"
             android:text="@string/share"
-            android:textColor="#939393" />
+            android:textColor="@color/grey_variant_1" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_info"
@@ -115,7 +106,7 @@
             android:gravity="center"
             android:paddingVertical="@dimen/_16dp"
             android:text="@string/info"
-            android:textColor="#939393" />
+            android:textColor="@color/grey_variant_1" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_delete"
@@ -127,6 +118,6 @@
             android:gravity="center"
             android:paddingVertical="@dimen/_16dp"
             android:text="@string/delete"
-            android:textColor="#939393" />
+            android:textColor="@color/grey_variant_1" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
