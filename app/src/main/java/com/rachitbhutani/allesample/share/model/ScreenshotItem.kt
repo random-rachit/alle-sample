@@ -7,6 +7,7 @@ data class ScreenshotItem(
     val id: Long?,
     val uri: Uri? = null,
     val bitmap: Bitmap? = null,
+    val path: String? = null,
 ) {
     var isActive: Boolean = false
     var description: ScreenshotDescription? = null

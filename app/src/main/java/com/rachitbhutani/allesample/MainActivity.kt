@@ -39,10 +39,19 @@ class MainActivity : AppCompatActivity() {
                     viewModel.refreshData()
                 }
             }
+            else -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    viewModel.activeScreenshotLiveData.value?.uri?.let {
+                        contentResolver.delete(it, null, null)
+                        viewModel.refreshData()
+                    }
+                }
+            }
         }
     }
 
     companion object {
         const val DELETE_ITEM_REQUEST_CODE = 101
+        const val DELETE_EXCEPTION_ALLOWED = 102
     }
 }

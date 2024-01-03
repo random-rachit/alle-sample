@@ -1,6 +1,5 @@
 package com.rachitbhutani.allesample
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -35,7 +34,7 @@ class MainViewModel @Inject constructor(repository: ImageRepository) : ViewModel
     ) { pagingSource }.flow
 
     fun refreshData() = viewModelScope.launch {
-        pagingSource.load(PagingSource.LoadParams.Refresh(0, 20, false))
+        pagingSource.load(PagingSource.LoadParams.Refresh(0, LOAD_SIZE, false))
     }
 
     fun loadImageInfo() = viewModelScope.launch(Dispatchers.IO) {
@@ -44,19 +43,16 @@ class MainViewModel @Inject constructor(repository: ImageRepository) : ViewModel
             val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
             val inputImage = InputImage.fromBitmap(bitmap, 0)
             recognizer.process(inputImage).addOnSuccessListener { text ->
-                descriptionLiveData.postValue(text.text)
+                descriptionLiveData.postValue(text.text.takeIf { it.isNotEmpty() } ?: "No Text")
             }
             labeler.process(inputImage).addOnSuccessListener { list ->
-                labelLivedata.postValue(list.take(3).sortedByDescending { it.confidence }.map {
-                    Log.e("Rachit's log", "Text: ${it.text} Confidence: ${it.confidence}")
-                    it.text
-                })
+                labelLivedata.postValue(list.take(3).sortedByDescending { it.confidence }.map { it.text })
             }
         }
     }
 
     companion object {
-        const val INITIAL_LOAD_SIZE = 20
+        const val INITIAL_LOAD_SIZE = 10
         const val LOAD_SIZE = 10
     }
 }
