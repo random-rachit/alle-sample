@@ -163,9 +163,18 @@ class ShareFragment : Fragment(), ScreenshotListCallback {
                         }
                     }
                 }
+            } else {
+                it.path?.let { path ->
+                    val file = File(path)
+                    if (file.exists()) {
+                        // Perform the deletion operation
+                        requireActivity().contentResolver.delete(it.uri!!, null, null)
+                        deletingAtPos?.let { pos -> adapter.notifyItemRemoved(pos) }
+                        viewModel.refreshData()
+                    }
+                }
             }
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -258,7 +267,8 @@ class ShareFragment : Fragment(), ScreenshotListCallback {
     override fun onScreenshotSelected(screenshot: ScreenshotItem?, position: Int) {
         viewModel.activeScreenshotLiveData.value?.let {
             it.isActive = false
-            val oldPos = adapter.snapshot().items.indexOf(viewModel.activeScreenshotLiveData.value)
+            val oldPos =
+                adapter.snapshot().items.indexOf(viewModel.activeScreenshotLiveData.value)
             adapter.markActive(oldPos, false)
         }
         screenshot?.isActive = true
