@@ -12,8 +12,8 @@ import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.rachitbhutani.allesample.data.GalleryPagingSource
-import com.rachitbhutani.allesample.share.ImageRepository
-import com.rachitbhutani.allesample.share.model.ScreenshotItem
+import com.rachitbhutani.allesample.data.ImageRepository
+import com.rachitbhutani.allesample.home.model.ScreenshotItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.rachitbhutani.allesample.databinding.ActivityMainBinding
-import com.rachitbhutani.allesample.share.ShareFragment
+import com.rachitbhutani.allesample.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUi() {
-        val shareFragment = ShareFragment()
+        val homeFragment = HomeFragment()
         supportFragmentManager
             .beginTransaction()
-            .replace(binding.fragContainer.id, shareFragment)
+            .replace(binding.fragContainer.id, homeFragment)
             .commit()
     }
 

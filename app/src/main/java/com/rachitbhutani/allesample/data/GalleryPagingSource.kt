@@ -2,8 +2,7 @@ package com.rachitbhutani.allesample.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.rachitbhutani.allesample.share.ImageRepository
-import com.rachitbhutani.allesample.share.model.ScreenshotItem
+import com.rachitbhutani.allesample.home.model.ScreenshotItem
 import javax.inject.Inject
 
 class GalleryPagingSource @Inject constructor(private val repository: ImageRepository) :

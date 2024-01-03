@@ -1,4 +1,4 @@
-package com.rachitbhutani.allesample.share
+package com.rachitbhutani.allesample.data
 
 import android.content.ContentResolver
 import android.content.ContentUris
@@ -6,9 +6,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import com.rachitbhutani.allesample.MainViewModel
-import com.rachitbhutani.allesample.share.model.ScreenshotItem
+import com.rachitbhutani.allesample.home.model.ScreenshotItem
 import javax.inject.Inject
 
 class ImageRepository @Inject constructor(private val contentResolver: ContentResolver) {

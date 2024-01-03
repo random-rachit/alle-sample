@@ -1,4 +1,4 @@
-package com.rachitbhutani.allesample.share.model
+package com.rachitbhutani.allesample.home.model
 
 import android.graphics.Bitmap
 import android.net.Uri

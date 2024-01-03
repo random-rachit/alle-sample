@@ -1,4 +1,4 @@
-package com.rachitbhutani.allesample.share
+package com.rachitbhutani.allesample.home
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.READ_MEDIA_IMAGES
@@ -34,14 +34,14 @@ import com.rachitbhutani.allesample.MainViewModel
 import com.rachitbhutani.allesample.R
 import com.rachitbhutani.allesample.databinding.FragmentShareBinding
 import com.rachitbhutani.allesample.databinding.LabelItemBinding
-import com.rachitbhutani.allesample.share.model.ScreenshotItem
+import com.rachitbhutani.allesample.home.model.ScreenshotItem
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import java.io.File
 
 
 @AndroidEntryPoint
-class ShareFragment : Fragment(), ScreenshotListCallback {
+class HomeFragment : Fragment(), ScreenshotListCallback {
 
     private lateinit var binding: FragmentShareBinding
     private lateinit var adapter: ScreenshotListAdapter
@@ -256,7 +256,7 @@ class ShareFragment : Fragment(), ScreenshotListCallback {
 
     private fun setupUi() {
         binding.run {
-            adapter = ScreenshotListAdapter(requireContext(), this@ShareFragment)
+            adapter = ScreenshotListAdapter(requireContext(), this@HomeFragment)
             rvScreenshots.adapter = adapter
             rvScreenshots.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)

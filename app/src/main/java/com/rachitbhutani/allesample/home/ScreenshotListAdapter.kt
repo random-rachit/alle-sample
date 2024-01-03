@@ -1,7 +1,6 @@
-package com.rachitbhutani.allesample.share
+package com.rachitbhutani.allesample.home
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -11,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rachitbhutani.allesample.R
 import com.rachitbhutani.allesample.databinding.ScreenshotItemViewBinding
-import com.rachitbhutani.allesample.share.model.ScreenshotItem
+import com.rachitbhutani.allesample.home.model.ScreenshotItem
 
 class ScreenshotListAdapter(
     private val context: Context,
@@ -73,16 +72,14 @@ class ScreenshotListAdapter(
                 oldItem: ScreenshotItem,
                 newItem: ScreenshotItem
             ): Boolean {
-                val isIt = oldItem.id == -1L
-                Log.e("Rachit's log", "$isIt")
-                return isIt
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
                 oldItem: ScreenshotItem,
                 newItem: ScreenshotItem
             ): Boolean {
-                return oldItem.uri == null
+                return oldItem.uri == newItem.uri
             }
         }
     }
